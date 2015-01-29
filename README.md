@@ -6,16 +6,22 @@ Super Small jQuery Slider
 Example:
 
 Html
-
-<ul class="ghSlider">
-    <li><img src="/img/slider-foto1.jpg" /></li>
-    <li><img src="/img/slider-foto2.jpg" /></li>
-    <li><img src="/img/slider-foto3.jpg" /></li>
-</ul>
-
+<div class="banners">
+    <ul class="ghSlider">
+        <li><img src="/img/slider-foto1.jpg" /></li>
+        <li><img src="/img/slider-foto2.jpg" /></li>
+        <li><img src="/img/slider-foto3.jpg" /></li>
+    </ul>
+</div>
 Css
 
- .ghSlider {
+.banners {
+    max-width: 1920px;
+    overflow: hidden;
+    clear: both;
+}
+
+.ghSlider {
    width: 1920px;
    height: 280px;
 }
