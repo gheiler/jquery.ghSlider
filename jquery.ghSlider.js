@@ -27,8 +27,9 @@ $.ghSlider = function ($this, options) {
         autoSlide: true,
         secsToSlide: 8,
         arrows: true,
-        stopOnChange: false
-    };
+        stopOnChange: false,
+        imagesShowed: 0
+};
 
     $this.options = $.extend({}, $.fn.ghSlider.defaults, options);
     var o = $this.options;
@@ -46,7 +47,7 @@ $.ghSlider = function ($this, options) {
     */
     function initialize() {
         totalItems = $("li", $this.selector).length;
-        itemsCnt = $("ul", $this.selector);
+        itemsCnt = $($this.selector);
         // doy estilo al contenedor y a los items
         $this.addClass("ghSlider");
         $this.css("width", o.width + "px");
@@ -83,7 +84,7 @@ $.ghSlider = function ($this, options) {
 
         $(document).on("click", ".next", function () {
             if (!arrowsLocked) { // esperamos a que termine la animacion antes de dejar apretar otra vez
-                if (-$(itemsCnt).css("margin-left").split("px")[0] + o.width < (o.width * totalItems)) { // que no se exceda de los limites 
+                if ($(itemsCnt).css("margin-left").split("px")[0] + o.width < (o.width * totalItems)) { // que no se exceda de los limites 
                     arrowsLocked = true; // bloqueamos el movimiento
                     $(itemsCnt).animate({ "margin-left": "-=" + o.width }, "slow", function () {
                         arrowsLocked = false; // permito mover otra vez
@@ -97,11 +98,13 @@ $.ghSlider = function ($this, options) {
             sliderTimeout = setInterval(function () {
                 if (!arrowsLocked) {
                     arrowsLocked = true; // bloqueamos el movimiento por flechas
-                    if (-itemsCnt.css("margin-left").split("px")[0] + o.width < (o.width * totalItems)) {
+                    if (o.imagesShowed < totalItems - 1) {
+                        o.imagesShowed++;
                         $(itemsCnt).animate({ "margin-left": "-=" + o.width }, "slow", function () {
                             arrowsLocked = false; // permito mover otra vez
                         });
                     } else {
+                        o.imagesShowed = 0;
                         // vuelvo a empezar
                         $(itemsCnt).animate({ "margin-left": "+=" + o.width * (totalItems - 1) }, "fast", function () {
                             arrowsLocked = false; // permito mover otra vez
