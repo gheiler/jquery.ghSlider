@@ -24,9 +24,10 @@ Css
 .ghSlider li {
     float: left;
 }
-<style>
+</style>
 
 Js initer
+
 
 <script>
     $(function () {
