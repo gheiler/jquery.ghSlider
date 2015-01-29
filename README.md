@@ -7,30 +7,30 @@ Example:
 
 Html
 
-<ul class="ghSlider">
+<!--<ul class="ghSlider">
     <li><img src="/img/slider-foto1.jpg" /></li>
     <li><img src="/img/slider-foto2.jpg" /></li>
     <li><img src="/img/slider-foto3.jpg" /></li>
-</ul>
+</ul>-->
 
 Css
 
-<style>
-  .ghSlider {
-    width: 1920px;
-    height: 280px;
+<!--<style>
+ .ghSlider {
+   width: 1920px;
+   height: 280px;
 }
 
 .ghSlider li {
     float: left;
 }
-</style>
+</style>-->
 
 Js initer
 
 
-<script>
-    $(function () {
-        $(".ghSlider").ghSlider({ width: 1920, height: 290, arrows: false });
-    });
-</script>
+// <script>
+//     $(function () {
+//         $(".ghSlider").ghSlider({ width: 1920, height: 290, arrows: false });
+//     });
+// </script>
